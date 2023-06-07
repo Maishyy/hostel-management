@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel on the Go</title>
+    <link rel="stylesheet" href="sytle.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <a href="#" class="logo">Hostel on the Go (HMS)</a> 
+                <ul class="menu">
+                    <li><a href="index.php">Hostels</a></li>
+                    <li><a href="index.php">Destinations</a></li>
+                    <li><a href="reach.php">Register hostel</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Find your perfect hostel</h1>
+            <form action="index.php" method="GET">
+                <input type="text" name="destination" placeholder="Destination">
+                
+                <button type="submit">Search</button>
+            </form>
+
+        </div>
+    </section>
+
+    <section class="featured-hostels">
+        <div class="container">
+            <h2>Featured Hostels</h2>
+            <div class="hostels-grid">
+                <div class="hostel-card">
+                    <img src="hostel1.jpg" alt="Hostel 1">
+                    <h3>Hostel 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="button">View Details</a>
+                </div>
+                <div class="hostel-card">
+                    <img src="hostel2.jpg" alt="Hostel 2">
+                    <h3>Hostel 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="button">View Details</a>
+                </div>
+                <div class="hostel-card">
+                    <img src="hostel3.jpg" alt="Hostel 3">
+                    <h3>Hostel 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <a href="#" class="button">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <div id="map"></div>
+    <script>
+        // Initialize and display the map
+        function initMap() {
+            // Center the map at Nairobi
+            var nairobi = { lat: -1.286389, lng: 36.817223 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: nairobi
+            });
+
+            // Generate random locations within Nairobi with corresponding hostel names
+            var hostelLocations = [
+                { name: "Faulu Hostel", lat: -1.285, lng: 36.823 },
+                { name: "Malaika Hostel", lat: -1.290, lng: 36.815 },
+                { name: "Safari Hostel", lat: -1.280, lng: 36.810 },
+                { name: "Karibu Hostel", lat: -1.275, lng: 36.830 },
+                { name: "Safari Hostel", lat: -1.295, lng: 36.820 },
+                { name: "Nafasi Hostel", lat: -1.275, lng: 36.815 },
+                { name: "Faida Hostel", lat: -1.280, lng: 36.825 },
+                { name: "Mazuri Hostel", lat: -1.290, lng: 36.810 },
+                { name: "Mfalme Hostel", lat: -1.280, lng: 36.825 },
+                { name: "Upendo Hostel", lat: -1.295, lng: 36.815 },
+                { name: "Raha Hostel", lat: -1.285, lng: 36.830 },
+                { name: "Milele Hostel", lat: -1.290, lng: 36.820 },
+                { name: "Roho Hostel", lat: -1.280, lng: 36.815 },
+                { name: "Riziki Hostel", lat: -1.275, lng: 36.825 },
+                { name: "Sifa Hostel", lat: -1.295, lng: 36.810 },
+                { name: "Majestic Hostel", lat: -1.285, lng: 36.830 },
+                { name: "Serene Hostel", lat: -1.290, lng: 36.820 },
+                { name: "Harmony Hostel", lat: -1.280, lng: 36.815 },
+                { name: "Tranquil Hostel", lat: -1.275, lng: 36.825 },
+                { name: "Vibrant Hostel", lat: -1.295, lng: 36.810 }
+            ];
+
+            // Add markers for hostel locations
+            for (var i = 0; i < hostelLocations.length; i++) {
+                var hostel = hostelLocations[i];
+                var marker = new google.maps.Marker({
+                    position: { lat: hostel.lat, lng: hostel.lng },
+                    map: map,
+                    title: hostel.name
+                });
+            }
+
+            // Generate random locations with Kenyan names of places and things
+            var randomLocations = [
+                { name: "Maasai Mara", lat: -1.375, lng: 35.155 },
+                { name: "Lake Nakuru", lat: -0.369, lng: 36.078 },
+                { name: "Mount Kenya", lat: -0.154, lng: 37.308 },
+                { name: "Diani Beach", lat: -4.283, lng: 39.579 },
+                { name: "Hell's Gate", lat: -0.911, lng: 36.304 }
+            ];
+
+            // Add markers for random locations
+            for (var i = 0; i < randomLocations.length; i++) {
+                var location = randomLocations[i];
+                var marker = new google.maps.Marker({
+                    position: { lat: location.lat, lng: location.lng },
+                    map: map,
+                    title: location.name
+                });
+            }
+        }
+    </script>
+    
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=your key here=initMap"></script>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Hostel on the go. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
